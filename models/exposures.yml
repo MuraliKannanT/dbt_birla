@@ -1,0 +1,12 @@
+exposures:
+  - name: powerbi_orders_dashboard
+    type: dashboard
+    maturity: high
+    url: https://app.powerbi.com/links/yf89BPk8z8?ctid=d90fa095-9542-408a-a4c2-d7b66a4b415e&pbi_source=linkShare
+    description: "Customer Orders dashboard in Power BI that uses curated dbt models."
+    depends_on:
+      - ref('fct_orders')
+      - ref('dim_customers')
+    owner:
+      name: Data Analytics Team
+      email: analytics@example.com
