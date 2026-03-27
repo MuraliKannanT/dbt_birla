@@ -1,7 +1,7 @@
 select
-    o_orderkey,
-    o_custkey,
-    o_orderdate,
-    o_orderstatus,
-    o_totalprice
+    order_id,
+    customer_id,
+    order_date,
+    status_code,
+    total_price
 from {{ ref('stg_orders') }}
