@@ -12,7 +12,8 @@
 
         -- amounts
         s_acctbal as account_balance,
-        updated_time
+        updated_time,
+        'CI_Job Testing' as test_job
 
     from {{ source('src', 'suppliers') }} supps 
     
