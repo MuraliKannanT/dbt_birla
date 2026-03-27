@@ -1,0 +1,51 @@
+models:
+  - name: stg_orders
+    columns:
+      - name: taxed_price
+        data_tests:
+          - nonzero
+  - name: stg_nations
+    config:
+      contract:
+        enforced: true
+      group: sales
+    description: This is a table to store all nation information
+    columns:
+      - name: nation_id
+        data_type: int
+        constraints:
+          - type: not_null
+        description: This is the primary key for nations table
+        data_tests:
+          - unique
+      - name: region_id
+        data_type: number(4,0)
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_regions')
+                field: region_id 
+              config:
+                store_failures: true
+                schema: Failures
+      - name: name
+        data_type: string
+      - name: comment
+        data_type: varchar(100)
+
+  - name: stg_regions
+    columns:
+      - name: region_id
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['AFRICA', 'AMERICA', 'ASIA','EUROPE','MIDDLE EAST'] 
+              config:
+                store_failures: true
+                schema: Failures
+
+    

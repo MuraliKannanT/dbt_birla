@@ -1,0 +1,8 @@
+snapshots:
+  - name: scd_orders
+    relation: ref('int_orders')
+    config:
+      unique_key: order_id
+      strategy: timestamp
+      updated_at: order_date::timestamp_ntz
+      hard_deletes: 'invalidate'

@@ -1,0 +1,5 @@
+models:
+  - name: int_nations
+    config:
+      group: sales
+      access: protected

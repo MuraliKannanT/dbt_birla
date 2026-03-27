@@ -1,0 +1,9 @@
+groups:
+  - name: sales
+    owner:
+      name: Global Sales Team
+      email: customer@gmail.com
+  - name: support
+    owner:
+      name: Customer Support Team 
+      email: support@gmail.com
