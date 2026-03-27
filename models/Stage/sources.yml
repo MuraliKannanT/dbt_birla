@@ -20,6 +20,6 @@ sources:
       - name: orders
         config:
           freshness:
-            warn_after: {count: 1, period: hour}
-            error_after: {count: 6, period: hour}
+            warn_after: {count: 1, period: day}
+            error_after: {count: 6, period: day}
           
