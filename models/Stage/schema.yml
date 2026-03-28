@@ -33,7 +33,7 @@ models:
       - name: comment
         data_type: varchar(100)
       - name: cts
-        data_type: timestamp
+        data_type: timestamp_tz
 
   - name: stg_regions
     columns:
