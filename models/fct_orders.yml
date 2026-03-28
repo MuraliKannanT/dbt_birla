@@ -50,3 +50,26 @@ models:
         expr: total_price
         percentile: 99.0
         percentile_type: discrete
+
+saved_queries:
+  - name: test_saved_query
+    description: Query for semantic model
+    label: Test saved query
+    config:
+      tags: 'my_tag'
+      cache:
+        enabled: true | false
+    query_params:
+      metrics:
+        - order_total
+      group_by:
+        - "Dimension('order_id__order_date')"
+      where:
+        - "{{ Dimension('order_id__order_date', 'DAY') }} <= now()"
+        - "{{ Dimension('order_id__order_date', 'DAY') }} >= '2023-01-01'"
+    exports:
+      - name: my_export
+        config:
+          export_as: table 
+          alias: my_export_alias
+          schema: my_export_schema_name
